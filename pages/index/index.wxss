@@ -1,0 +1,120 @@
+page{
+	width: 100%;
+	height: 100%;
+	/*background: rgb(22,26,27) center top /100% auto url(http://g.m.fans-me.com/barrageImg/bg.png) fixed no-repeat;*/
+}
+.main{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+}
+.bg{
+	position: absolute;
+	left:0;
+	top:0;
+	z-index:-2;
+	width: 100%;
+	height: 100%;
+}
+
+.ufo  {
+    position: absolute;
+    top:200rpx;
+    right: 20rpx;
+    width: 20%;
+    animation: fly 3s linear infinite;
+}
+
+@keyframes fly {
+    0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+    }
+
+    25% {
+        -webkit-transform: translate(10rpx, 20rpx);
+        transform: translate(10rpx, 20rpx);
+    }
+
+    50% {
+        -webkit-transform: translate(20rpx, 10rpx);
+        transform: translate(20rpx, 10rpx);
+    }
+
+    75% {
+        -webkit-transform: translate(10rpx, 10rpx);
+        transform: translate(10rpx, 10rpx);
+    }
+}
+
+.filter{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	mix-blend-mode: multiply; 
+}
+.korjo{
+	width: 50%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 80rpx;
+	-webkit-animation: korjo 1s ease;
+	        animation: korjo 1s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.barrage{
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+	margin-top: -50rpx;
+  -webkit-animation: barrage 1s ease;
+	        animation: barrage 1s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.road{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;	
+}
+.car{
+	position: absolute;
+	bottom: 30rpx;
+	left: 50%;
+	width: 50%;
+	transform: translateX(-50%);
+  -webkit-animation: car 1s ease;
+	        animation: car 1s ease;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+@-webkit-keyframes korjo{
+  0%{
+    transform: translateY(-100%)
+  }
+  100%{
+    transform: translateY(0)    
+  }
+}
+@-webkit-keyframes barrage{
+  0%{
+    transform: scale(0.1,0.1);
+  }
+  100%{
+    transform: scale(1,1);    
+  }
+}
+@-webkit-keyframes car{
+  0%{
+    transform: translateX(-150%);
+  }
+  100%{
+    transform: translateX(-50%);    
+  }
+}

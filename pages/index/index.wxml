@@ -1,0 +1,18 @@
+<view class="main" >
+	<image class="bg" src="{{img}}loveIndex_bg.jpg"></image>
+	<!-- <image class="korjo" mode="widthFix" src="http://www.korjo.cn/xcx/barrageImg/korjo.png"></image> -->
+	<!-- <image class="barrage" mode="widthFix" src="http://www.korjo.cn/xcx/barrageImg/barrage.png"></image>
+ -->	
+ 	<!-- <image class="filter" src="/images/filter.jpg"></image>  -->
+	<!-- <image class="road" mode="widthFix" src="http://www.korjo.cn/xcx/barrageImg/road.png"></image> -->
+	<!-- <image class="car" mode="widthFix" src="http://www.korjo.cn/xcx/barrageImg/car.png" bindtap="come"></image> -->
+	<view style="width: 100%;height:100%;display: flex;flex-direction: column;justify-content: space-between;align-items: center;">
+		<image style="width: 100%;" mode="widthFix" src="{{img}}love.png"></image>
+		<image style="width: 15%;" mode="widthFix" src="{{img}}index_come.png"
+		catchtap="come"></image>
+		<image style="width: 50%;" mode="widthFix" src="{{img}}index_lovers.png"></image>
+
+	</view>
+		<image class="ufo" src="http://www.korjo.cn/xcx/geographyImg/ufo.png" mode='widthFix' bindtap='showQrcode'></image>
+
+</view>

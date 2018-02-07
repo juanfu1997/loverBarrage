@@ -1,0 +1,24 @@
+<view class="main">
+	<view class="{{style_class? 'btn2': 'btn'}}">
+        	<view bindtap="btn_exit" class="btn_exit">关闭</view>
+        	<view bindtap="btn_back" class="btn_back">返回</view>
+    </view>
+    <view style="position: absolute;left: 0;top: 0;">
+        <audio style="width: 1px;height: 1px;" src="http://sc1.111ttt.cn/2017/1/11/11/304112002347.mp3" paused="false"></audio>
+    </view>
+    <view class="barrage_box">
+    	
+    		<view wx:if="{{style_class}}" class="{{barrage_class}}" style="{{animation}};line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};min-height:{{barrage_data.MinHeight}}rpx;max-height:{{barrage_data.MaxHeight}}rpx; width:{{barrage_data.width}}rpx;font-family: {{barrage_data.font}};" >{{barrage_data.textarea}}</view> 
+      
+	      <view wx:if="!{{style_class}}" class="vertical" style="{{animation}}; height: {{barrage_data.height}}rpx;min-width:{{barrage_data.MinWidth}}rpx;max-width:{{barrage_data.MaxWidth}}rpx;line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};font-family: {{barrage_data.font}};">
+	      		<view wx:if="{{textarea_2}}" style="width: {{barrage_data.size}};">{{textarea_2}}</view>
+	      		<view  style="width: {{barrage_data.size}};">{{textarea_1}}</view>
+	      </view>
+    	
+    	<view style="{{picture}}; ">
+    		<image wx:for="{{picture_style}}" wx:key="picture_{{index+1}}"  class="{{picture_class}}" style="{{picture_2}}; {{item.display}};" mode="aspectFit" src="{{item.picture}}"></image>  
+    	</view>
+    	<!-- <image class="{{picture_class}}" style="{{picture}}; {{pic_display.pic_1}};" mode="aspectFit" src="{{barrage_data.picture_1}}"></image>  
+    	<image class="{{picture_class}}" style="{{picture_2}}; {{pic_display.pic_2}}" mode="aspectFit" src="{{barrage_data.picture_2}}"></image> -->  	  	
+    </view>
+</view>

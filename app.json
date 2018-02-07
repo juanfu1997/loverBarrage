@@ -1,0 +1,14 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/barrage/barrage",
+    "pages/set/set"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "接机小弹幕",
+    "navigationBarTextStyle":"black"
+  }
+}
+  

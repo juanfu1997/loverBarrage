@@ -1,0 +1,125 @@
+<view class="main">
+	<image class="filter" src="/images/loveSet_bg.jpg"></image>
+    <view class="btn_senior" bindtap="btn_senior">高级</view>
+    <view class="btn_reset" >
+    	<view bindtap="btn_reset">重置</view>
+    	<image style="width: 50rpx;margin-top: 10rpx;" mode="widthFix" src="{{img}}music.png" bindtap="closeBgmusic"></image>
+    </view>
+	<view class="frame">
+	    <view class="logo"></view>
+
+		<view class="screen">
+		    <view class="content {{screen.HdIndex==0? 'active': ''}}" data-id="0">
+		    	<view class="tips">写下想放置的内容，建议八个字以内</view>
+		    	<view class="entry" style="{{tab[0].choiced}}overflow: hidden;">
+		    		<!-- <view style="width:100%;height:100%;font-size:80rpx;">
+		    			<textarea value="{{barrage_data.textarea}}" style="width: 100%;height: 100%; font-size:11.5vw;line-height: 80rpx;" bindinput="entry" bindfocus="entry"></textarea>
+		    			
+		    		</view> -->
+		    		<view style="width: 100%;height: 100%;overflow: hidden;">
+		    			<image hidden="{{!type_image}}" style="width: 100%;" mode="widthFix" src="{{img}}{{type_image}}"></image>
+		    			<textarea value="{{value}}" data-value="{{value}}" style="width: 100%;height: 100%;font-size: {{font_size}}vw;line-height: 2rem;" bindtap="getValue" hidden="{{textarea}}" auto-focus="{{!textarea}}" bindblur="preView"> </textarea>
+		    			<view style="width: 100%;height: 100%;font-size: {{font_size}}vw;display: flex;justify-content: space-around;align-items: center;line-height: 2.4rem;" data-value="{{value}}" hidden="{{!textarea}}" bindtap="edit" bindblur="setFontSize">{{value}}</view> 
+		    		</view>
+		    	</view>
+
+		    	<view class="tips">也可以直接选择一下预设内容</view>
+		    	    <view class="txt" style="{{item.choiced}}" hidden="{{!showType}}" wx:for="{{type_list}}" wx:key="txt" data-type="{{index}}" bindtap="setType">{{item.type}}</view>
+		    	    <view class="txt" style="{{item.choiced}}font-size:28rpx;" hidden="{{showType}}" wx:for="{{type_demo}}" wx:key="txt" data-value="{{item.txt}}" data-id="{{index}}" data-view="0" bindtap="choiced">{{item.txt}}</view>
+		    	     	
+		    </view>
+		    <view class="font {{screen.HdIndex==1? 'active': ''}}" data-id="1">
+		    	<view class="font_tips">请点击选择以下字体</view>
+		    	
+		    	<view class="font_style" wx:for="{{font_style}}" wx:key="font"  style="font-family: {{item.family}};{{item.choiced}};" data-id="{{index}}" data-view="1" bindtap="choiced">
+		    	{{item.style}}
+		    	</view>
+		    	
+		    </view>
+		    <view class="size {{screen.HdIndex==2? 'active': ''}}" >
+		    	<view class="font_tips">请点击选择以下字体大小</view>
+		    	
+		    	<view class="size_style" wx:for="{{size_style}}" wx:key="size"  style="font-size: {{item.size_view}};{{item.choiced}};" data-view="2" data-id="{{index}}" bindtap="choiced">
+		    	{{item.style}}
+		    	</view>
+		    </view>
+        
+		    <view class="color {{screen.HdIndex==3? 'active': ''}}" data-id="3">
+		    	<scroll-view scroll-y style="height:100%;width:100%;">
+        
+		    	<view class="font_tips">请点击选择以下字体颜色</view>
+		    	<view class="color_box"  style="">
+		    	    <view class="color_style {{item.choiced?'color_choiced':''}}" style="background-color:{{item.color}};color:{{item.color}};" wx:for="{{color_style}}" wx:key="color" data-view="3" bindtap="choiced" data-id="{{index}}"></view>
+		    	</view>
+          </scroll-view>
+		    </view>
+        
+		    <view class="picture {{screen.HdIndex==4? 'active': ''}}" data-id="4">
+		    	<view class="font_tips">请点击上传图片，最多上传2张</view>
+		    	<view class="picture_box">
+		    		<view class="picture_style" wx:for="{{picture_style}}" wx:key="picture"  data-id="{{index}}" bindtap="addPicture">
+		    			<image class="picture_logo" src="/images/picture_logo.png" bindtap=""></image>
+		    			<view class="addText">添加图片</view>
+		    			<image class="addPicture" mode="aspectFit" style="" src="{{item.picture}}"></image>
+		    		</view>
+		    	</view>
+		    </view>
+		    <view class="record {{screen.HdIndex==5? 'active': ''}}" style="" data-id="5">
+		    	<view class="font_tips">请长按下面图标进行录音</view>
+		    	<view class="record_box" bindtouchstart="addRecord" bindtouchend="closeRecord">
+		    		<image class="addRecord" mode="widthFix" src="{{img}}recording.png" ></image>
+		    	</view>
+		    	<view class="playRecord" wx:if="{{!play}}" style="" bindtap="playRecord">
+		    		<view>点击选择录音</view>
+		    		<image style="width: 15%;" mode="widthFix" src="{{img}}play.png" ></image>
+		    		<!-- <video id="myAudio" style="width: 0;height: 0;" src="{{video}}"></video> -->
+		    	</view>
+		    	
+		    </view>
+		    <view class="music {{screen.HdIndex==6? 'active': ''}}" style="" data-id="6">
+		    	<view class="font_tips">选择以下音乐作为背景音乐</view>
+		    	<scroll-view style="width: 80%;height: 80%;" scroll-y="true">
+		    	<view style="playMusic" bindtap="">
+		    		<view class="addMusic" style="background: #f1f1f1;color: {{music_list.choiced==index?'#f29c9f':'#000'}};" wx:for="{{music_list.musicNum}}" data-index="{{index}}" bindtap="playMusic">
+		    			背景音乐{{index}}
+		    		</view>
+		    	</view>
+		    	</scroll-view>
+		    	
+		    </view>
+		    <view class="effect {{screen.HdIndex==7? 'active': ''}}" data-id="7">
+		    	<view class="font_tips">请点击选择以下字体效果</view>
+		    	<view class="effect_style {{item.effect}}" wx:for="{{effect_style}}" wx:key="effect"  data-id="{{index}}" data-view="7" style="{{item.choiced}};" bindtap="choiced">
+		    	{{item.style}}
+		    	</view>
+		    </view>
+		    <view class="direction {{screen.HdIndex==8? 'active': ''}}" data-id="8">
+		    	<view class="font_tips">请点击选择屏幕方向</view>
+		    	<view class="picture_box">
+		    		<view class="picture_style" wx:for="{{direction_style}}" wx:key="direction"  data-id="{{index}}" data-view="8" bindtap="choiced">
+			    		<image class="{{item.direction}}" src="{{item.icon}}">
+			    		</image>
+			    			<view></view>
+		    		</view>
+		    	</view>
+		    </view>
+	    </view>
+
+
+
+
+
+	    
+
+	    <view class="tab_box" hidden="">
+	    	<view wx:for="{{tab}}" wx:if="{{index!=2}}" wx:key="id" class="{{item.class}}"  data-id="{{index}}" catchtap="screentop"  >
+	    		<image  class="icon" src="{{item.image}}"></image>
+	    		<view class="function">{{item.txt}}</view>
+	    	</view>
+	    </view>
+
+
+	    <view class="home"></view>
+	</view>
+	<view class="btn_save" bindtap="btn_save">保存</view>
+</view>
