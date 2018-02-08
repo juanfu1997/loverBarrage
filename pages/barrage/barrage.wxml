@@ -15,7 +15,7 @@
 	      		<view  style="width: {{barrage_data.size}};">{{textarea_1}}</view>
 	      </view>
     	
-    	<view style="/*{{picture}};*/ ">
+    	<view >
     		<image wx:for="{{picture_style}}" wx:key="picture_{{index+1}}"  class="{{picture_class}}" style="{{picture_2}}; {{item.display}};" mode="aspectFit" src="{{item.picture}}"></image>  
     	</view>
     	<!-- <image class="{{picture_class}}" style="{{picture}}; {{pic_display.pic_1}};" mode="aspectFit" src="{{barrage_data.picture_1}}"></image>  

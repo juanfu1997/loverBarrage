@@ -123,7 +123,7 @@ Page({
       barrage_data.bgmusic = ''
     }else{
       closeBgmusic = 'music.png'
-      barrage_data.bgmusic = 'https:www.korjo.cn/xcx/loverBarrage/music/0.mp3'
+      barrage_data.bgmusic = 'https://www.korjo.cn/xcx/loverBarrage/music/0.mp3'
 
     }
     that.setData({
