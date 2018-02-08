@@ -69,7 +69,7 @@ Page({
   },
   btn_exit(){
     wx.redirectTo({
-      url: '/pages/page/page'
+      url: '/pages/index/index'
     })
   },
   btn_back(){
@@ -102,8 +102,13 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    var barrage_data = wx.getStorageSync("barrage_data");
-    var picture_style = wx.getStorageSync("picture_style");
+   if(options.barrage_data){
+      var barrage_data = JSON.parse(options.barrage_data);
+      var picture_style = JSON.parse(options.picture_style);
+   }else{
+      var barrage_data = wx.getStorageSync("barrage_data");
+      var picture_style = wx.getStorageSync("picture_style");
+   }
     var barrage_class = that.data.barrage_class
     var direction =that.data.direction;
     var textarea = barrage_data.textarea;
@@ -114,6 +119,8 @@ Page({
     var style_class = that.data.style_class;
     // barrage_data = JSON.stringify(barrage_data)
     var video_src
+    var barrage_height
+    var pic_width = 0
     console.log('barrage_data',barrage_data)
     if(barrage_data.bgmusic){
       video_src = barrage_data.bgmusic
@@ -147,6 +154,8 @@ Page({
     if(!picture_style[1].picture){
        picture_style[1].display = "display:none";
     }
+    var picture_num = picture_style[0].picture.length + picture_style[1].picture.length
+        pic_width = picture_num*getApp().globalData.windowWidth
 
     switch(barrage_data.direction)
     {
@@ -155,7 +164,7 @@ Page({
         barrage_data.MaxHeight = get_size*2;
         // barrage_data.MaxHeight = barrage_data.MaxHeight.toString();
         barrage_data.LineHeight = get_size;
-        barrage_data.bgminheight = barrage_data.width = get_size*4;
+        barrage_data.bgminheight = barrage_height = barrage_data.width = get_size*4;
         barrage_data.length = get_size*6;
         style_class = true;
         
@@ -166,8 +175,8 @@ Page({
         
 
 
-      picture = "-webkit-animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;margin-top:"+barrage_data.length+"rpx";
-      var picture_2 = "-webkit-animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;margin-top:300rpx";
+      picture = "-webkit-animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;margin-top:";
+      var picture_2 = "-webkit-animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;animation:pic_2"+barrage_data.effect+" 1.5s linear infinite;width:"+getApp().globalData.windowWidth+"px;";
       
         
 
@@ -176,18 +185,22 @@ Page({
       }
       // direction = "dynamic_vertical";
       if(textarea.length<=4){
+    console.log('transverse')
+
         barrage_class ='transverse'
         direction = "transverse";
         var animation = "-webkit-animation:transverse_"+barrage_data.effect+" 1.5s linear infinite";
         
       }else{
+    console.log('transverse2')
+
         barrage_class ='transverse_2'
         direction = "transverse_2";
         var animation = "-webkit-animation:transverse_2"+barrage_data.effect+" 1.5s linear infinite";
         if(textarea.length>8){
           var text = Math.ceil(textarea.length/2)
           var _size = size.replace('rpx','')
-          barrage_data.width = _size*text
+          barrage_height = barrage_data.width = _size*text
           that.setData({
             barrage_class,
             barrage_data,
@@ -240,20 +253,24 @@ Page({
             barrage_data,
           })
         }
-
+        barrage_height =textarea_1.length*get_size
+        
         var picture_class ="picture";
         var animation = "-webkit-animation:vertical_"+barrage_data.effect+" 1.5s linear infinite";
-        picture = "-webkit-animation:pic_"+barrage_data.effect+" 1.5s linear infinite;animation:pic_"+barrage_data.effect+" 1.5s linear infinite;margin-top:"+barrage_data.length+"rpx";
-        var picture_2 = "-webkit-animation:pic_"+barrage_data.effect+" 1.5s linear infinite;animation:pic_"+barrage_data.effect+" 1.5s linear infinite;margin-top:100rpx";
+        picture = "-webkit-animation:pic_"+barrage_data.effect+" 1.5s linear infinite;animation:pic_"+barrage_data.effect+" 1.5s linear infinite;";
+        var picture_2 = "-webkit-animation:pic_"+barrage_data.effect+" 1.5s linear infinite;animation:pic_"+barrage_data.effect+" 1.5s linear infinite;width:"+getApp().globalData.windowWidth+"px;";
       break;
     default:
       console.log('选择屏幕方向出错')
     }
+    console.log('barrage_height',barrage_height,pic_width)
+    barrage_height = barrage_height + pic_width*2
+    console.log('barrage_height',barrage_height,pic_width)
 
 
 
     
-    this.setData({
+    that.setData({
       barrage_data:barrage_data,
       direction:direction,
       animation:animation,
@@ -264,10 +281,36 @@ Page({
       textarea_1:textarea_1,
       textarea_2:textarea_2,
       style_class:style_class,
+      barrage_class,
+      barrage_height,
+
     })
   
   },
+  onUnload: function () {
+    var that = this
+    that.backgroundAudioManager.stop()
+  
+  },
+  onShareAppMessage: function () {
+    var that = this
+    var barrage_data = that.data.barrage_data
+    var picture_style = that.data.picture_style
+    barrage_data = JSON.stringify(barrage_data)
+    picture_style = JSON.stringify(picture_style)
+    console.log(barrage_data)
+    return {
+      title: '爱情小弹幕',
+      path: `/pages/barrage/barrage?barrage_data=${barrage_data}&picture_style=${picture_style}`,
 
+      success: function(res) {
+        // 转发成功
+      },
+      fail: function(res) {
+        // 转发失败
+      }
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -292,9 +335,7 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
   
-  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
@@ -313,7 +354,5 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
   
-  }
 })

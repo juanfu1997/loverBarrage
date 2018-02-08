@@ -72,11 +72,20 @@ page{
 	top: 20rpx;
   	color: #a1a1a1;
 }
+.reset{
+	padding: 8rpx 16rpx;
+  	border-radius: 10rpx;
+  	border:2rpx solid #ccc;
+}
 .btn_senior{
 	position: absolute;
 	left: 5%;
 	top: 20rpx;
   	color: #a1a1a1;
+  	padding: 8rpx 16rpx;
+  	border-radius: 10rpx;
+  	border:2rpx solid #ccc;
+  	/*border-bottom: 2rpx solid #ccc;*/
 }
 .btn_save{
 	width: 50%;
@@ -87,6 +96,7 @@ page{
 	background-color: #f29c9f;
 	margin: 30rpx auto;
 	border-radius: 25rpx;
+
 }
 .content{
 	display: none;

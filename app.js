@@ -40,7 +40,7 @@ App({
   globalData: {
     userInfo: null,
     img:'/images/',
-    music:'https:www.korjo.cn/xcx/loverBarrage/music/',
+    music:'https://www.korjo.cn/xcx/loverBarrage/music/',
     korjo:'https://www.korjo.cn',
     windowWidth:'',
     windowHeight:'',

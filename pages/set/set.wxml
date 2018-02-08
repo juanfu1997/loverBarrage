@@ -2,8 +2,10 @@
 	<image class="filter" src="/images/loveSet_bg.jpg"></image>
     <view class="btn_senior" bindtap="btn_senior">高级</view>
     <view class="btn_reset" >
-    	<view bindtap="btn_reset">重置</view>
-    	<image style="width: 50rpx;margin-top: 10rpx;" mode="widthFix" src="{{img}}music.png" bindtap="closeBgmusic"></image>
+    	<view class="reset" bindtap="btn_reset">重置</view>
+    	<view style="margin-top: 10rpx;display: flex;justify-content: flex-end;align-items: center;" >
+    		<image style="width: 50rpx;" mode="widthFix" src="{{img}}{{closeBgmusic}}" bindtap="closeBgmusic"></image>
+    	</view>
     </view>
 	<view class="frame">
 	    <view class="logo"></view>
@@ -111,8 +113,8 @@
 
 	    
 
-	    <view class="tab_box" hidden="">
-	    	<view wx:for="{{tab}}" wx:if="{{index!=2}}" wx:key="id" class="{{item.class}}"  data-id="{{index}}" catchtap="screentop"  >
+	    <view class="tab_box" hidden="{{showTab}}">
+	    	<view wx:for="{{tab}}" wx:if="{{index!=1}}" wx:key="id" class="{{item.class}}"  data-id="{{index}}" catchtap="screentop"  >
 	    		<image  class="icon" src="{{item.image}}"></image>
 	    		<view class="function">{{item.txt}}</view>
 	    	</view>

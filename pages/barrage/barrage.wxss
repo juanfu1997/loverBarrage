@@ -13,6 +13,7 @@ html,page{
   height: 100%;
   background-color: #000000;
   overflow: hidden;
+  position: relative;
 }
 
 .btn{
@@ -28,8 +29,8 @@ html,page{
   width: 90%;
 }
 .btn_exit{
-  border:2rpx solid #7dbd28;
-  color: #7dbd28;
+  border:2rpx solid #f8e4e6;
+  color: #f8e4e6;
   width: 140rpx;
   height: 80rpx;
   line-height: 80rpx;
@@ -37,8 +38,8 @@ html,page{
   border-radius: 30rpx;
 }
 .btn_back{
-  border:2rpx solid #7dbd28;
-  color: #7dbd28;
+  border:2rpx solid #f8e4e6;
+  color: #f8e4e6;
   width: 140rpx;
   height: 80rpx;
   line-height: 80rpx;
@@ -77,10 +78,18 @@ html,page{
   border-radius: 30rpx;
 }
 .barrage_box{
-  position: relative;
-  display: inline-block;      
+  /*position: relative;*/
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  /*display: inline-block;      */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
-  min-height: 100%;
+  /*min-height: 100%;*/
      /* background-color: #aaa;    */
    -webkit-animation:  test 10s linear infinite;
           animation:  test 10s linear infinite; 
@@ -90,13 +99,14 @@ html,page{
  }
 .picture{
   box-sizing: border-box;
-  width: 100%;
+  /*width: 100%;*/
+
   /*-webkit-animation:  swing 1.5s linear infinite;
               animation:  swing 1.5s linear infinite;*/
 }
 .picture_2{
   box-sizing: border-box;
-  width: 100%;
+  /*width: 100%;*/
   transform: rotate3d(0,0,1,90deg);
   /*-webkit-animation:  swing 1.5s linear infinite;
               animation:  swing 1.5s linear infinite;*/
@@ -132,10 +142,10 @@ html,page{
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: absolute;
-  transform: translateX(-50%);
+/*  position: absolute;
   left: 50%;
-  top: 0;
+  top: 0;*/
+  /*transform: translateX(-50%);*/
   /*transform: rotate(90deg);
   transform-origin: 0% 50%;*/
   
@@ -158,8 +168,8 @@ html,page{
   font-size: 180rpx;
   color: #ffffff;*/
   /*border:2rpx solid #fff;*/
-  -webkit-transform:  translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
-          transform:  translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);  /*rotate3d在translateY在Y轴移动之后旋转90度，将原来X轴理解为Y轴，这时候translateY为原来X轴的移动。*/
+  -webkit-transform:  translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
+          transform:  translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);  /*rotate3d在translateY在Y轴移动之后旋转90度，将原来X轴理解为Y轴，这时候translateY为原来X轴的移动。*/
   -webkit-transform-origin: top center;
       -ms-transform-origin: top center;
           transform-origin: top center;
@@ -170,17 +180,18 @@ html,page{
 /*  -webkit-animation:transverse_tada 1.5s linear infinite; */
 }
 .transverse_2{
-  position: absolute;
+  /*position: absolute;
   left: 50%;
-  top: 0;
+  top: 0;*/
+
   /*width: 720rpx;
   min-height: 180rpx;
   max-height:360rpx;
   line-height: 180rpx;
   font-size: 180rpx;
   color: #ffffff;*/
-  -webkit-transform:  translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
-  transform:translateX(-50%) translateY(100%) rotate3d(0,0,1,90deg) translateY(-50%) rotateZ(0deg);  /*rotate3d在translateY在Y轴移动之后旋转90度，将原来X轴理解为Y轴，这时候translateY为原来X轴的移动。*/
+  -webkit-transform:  translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
+  transform:translateX(-0%) translateY(0%) rotate3d(0,0,1,90deg) translateY(-50%) rotateZ(0deg);  /*rotate3d在translateY在Y轴移动之后旋转90度，将原来X轴理解为Y轴，这时候translateY为原来X轴的移动。*/
   transform-origin: top center;
   -webkit-backface-visibility: visible;
   backface-visibility: visible;  
@@ -191,27 +202,43 @@ html,page{
 @-webkit-keyframes test {        
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
     0% {
-      -webkit-transform: translateY(100%);
-              transform: translateY(100%) ;
+      /*-webkit-transform: translateY(100%);
+              transform: translateY(100%) ;*/
+              position: absolute;
+              left: 50%;
+              top: 100%;
+              transform: translateX(-50%) translateY(0%);
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     100% {
-      -webkit-transform: translateY(-110%);
-              transform: translateY(-110%) ;
+      /*-webkit-transform: translateY(-100%);
+              transform: translateY(-100%) ;*/
+              position: absolute;
+              left: 50%;
+              top: 0%;
+              transform: translateX(-50%) translateY(-100%);
       /*transform: translateX(-50%) translateY(-100%);*/
         /*transform: translateX(-50%) translateY(-250%);*/
     }
 }
-@keyframes test {        
+@keyframes test1 {        
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
     0% {
-      -webkit-transform: translateY(100%);
-              transform: translateY(100%) ;
+      /*-webkit-transform: translateY(100%);
+              transform: translateY(100%) ;*/
+              position: absolute;
+              left: 50%;
+              top: 100%;
+              transform: translateX(-50%) translateY(0%);
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     100% {
-      -webkit-transform: translateY(-110%);
-              transform: translateY(-110%);
+      /*-webkit-transform: translateY(-100%);
+              transform: translateY(-100%) ;*/
+              position: absolute;
+              left: 50%;
+              top: 0%;
+              transform: translateX(-50%) translateY(-100%);
       /*transform: translateX(-50%) translateY(-100%);*/
         /*transform: translateX(-50%) translateY(-250%);*/
     }
@@ -377,8 +404,8 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕翻转*/
   from {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 90deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 90deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -387,8 +414,8 @@ html,page{
   }
 
   40% {
-    -webkit-transform: perspective(400px)  translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
+    -webkit-transform: perspective(400px)  translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -20deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -20deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -396,8 +423,8 @@ html,page{
   }
 
   60% {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 10deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 10deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -406,8 +433,8 @@ html,page{
   }
 
   80% {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -5deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -5deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -415,8 +442,8 @@ html,page{
   }
 
   to {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
    /* -webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -429,8 +456,8 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕翻转*/
   from {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 90deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 90deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 90deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -439,8 +466,8 @@ html,page{
   }
 
   40% {
-    -webkit-transform:  perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
-          transform:  perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
+    -webkit-transform:  perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
+          transform:  perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) (0, 1, 0, -20deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -20deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -20deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -448,8 +475,8 @@ html,page{
   }
 
   60% {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
-          transform: perspective(400px)  translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
+          transform: perspective(400px)  translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, 10deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 10deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, 10deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -458,8 +485,8 @@ html,page{
   }
 
   80% {
-    -webkit-transform:  perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
+    -webkit-transform:  perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg) rotate3d(0, 1, 0, -5deg);
     /*-webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -5deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg)rotate3d(0, 1, 0, -5deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -467,8 +494,8 @@ html,page{
   }
 
   to {
-    -webkit-transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
-          transform: perspective(400px) translateX(-37.5%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
+    -webkit-transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
+          transform: perspective(400px) translateX(-50%)  rotate3d(0,0,1,90deg) translateX(50%) rotateZ(0deg);
    /* -webkit-transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg);
             transform: translateX(-50%) translateY(200%) perspective(400px) rotateZ(90deg) translateY(-50%) rotateZ(0deg);*/
     -webkit-animation-timing-function: ease-in;
@@ -596,58 +623,58 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕摇摆*/
     20% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     40% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     60% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     80% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     100% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%); 
         /*transform: translateX(-50%) translateY(-250%);*/
     }
 
 }  
-@keyframes transverse_2swing {        
+@keyframes transverse_2swing1 {        
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕摇摆*/
     20% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 25deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     40% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -20deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     60% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 10deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     80% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, -10deg)  translateY(-50%); 
       /*transform: translateX(-50%) translateY(150%) ;*/
     }
     100% {
-      -webkit-transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%);
-              transform: translateX(-50%) translateY(100%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%); 
+      -webkit-transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%);
+              transform: translateX(-0%) translateY(-50%) rotate(90deg) rotate3d(0, 0, 1, 0deg)  translateY(-50%); 
         /*transform: translateX(-50%) translateY(-250%);*/
     }
 
@@ -656,34 +683,34 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕翻转*/
   from {
-    -webkit-transform: translateX(-50%) translateY(100%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-50%);
-            transform: translateX(-50%) translateY(100%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-150%);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     opacity: 0;
   }
 
   40% {
-    -webkit-transform: translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-150%);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
   }
 
   60% {
-    -webkit-transform: translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-150%);
     opacity: 1;
   }
 
   80% {
-    -webkit-transform: translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-150%);
   }
 
   to {
-    -webkit-transform: translateX(-50%) translateY(100%) perspective(400px) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) perspective(400px) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate(90deg) translateY(-150%);
   }
 
 }
@@ -691,34 +718,34 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕翻转*/
   from {
-    -webkit-transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-50%);
-            transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px)  rotate3d(1, 0, 0, 90deg) rotate(90deg)  translateY(-150%);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     opacity: 0;
   }
 
   40% {
-    -webkit-transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-50%);
-            transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -20deg) rotate(90deg) translateY(-150%);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
   }
 
   60% {
-    -webkit-transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-50%);
-            transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, 10deg) rotate(90deg) translateY(-150%);
     opacity: 1;
   }
 
   80% {
-    -webkit-transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-50%);
-            transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate3d(1, 0, 0, -5deg) rotate(90deg) translateY(-150%);
   }
 
   to {
-    -webkit-transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate(90deg) translateY(-50%);
-            transform: perspective(400px) translateX(-50%) translateY(100%) perspective(400px) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(0%) perspective(400px) rotate(90deg) translateY(-150%);
+            transform: translateX(-50%) translateY(0%) perspective(400px) rotate(90deg) translateY(-150%);
   }
 
 }
@@ -726,18 +753,18 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕抖动*/
   from, to {
-    -webkit-transform: translateX(-50%) translateY(100%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
   }
 
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-50%) translateY(100%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
   }
 
   20%, 40%, 60%, 80% {
-    -webkit-transform: translateX(-50%) translateY(100%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
   }
 
 }
@@ -745,18 +772,18 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕抖动*/
   from, to {
-    -webkit-transform: translateX(-50%) translateY(100%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) translate3d(0, 0, 0) rotate(90deg) translateY(-50%);
   }
 
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-50%) translateY(100%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) translate3d(0, -10px, 0) rotate(90deg) translateY(-50%);
   }
 
   20%, 40%, 60%, 80% {
-    -webkit-transform: translateX(-50%) translateY(100%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) translate3d(0, 10px, 0) rotate(90deg) translateY(-50%);
   }
 
 }
@@ -764,28 +791,28 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕放大抖动*/
   from {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
   }
 
   10%, 20% {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
   }
 
   30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
   }
 
   40%, 60%, 80% {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
   }
 
   to {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
   }
 
 }
@@ -793,28 +820,28 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕放大抖动*/
   from {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
   }
 
   10%, 20% {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg) rotate(90deg) translateY(-50%);
   }
 
   30%, 50%, 70%, 90% {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) rotate(90deg) translateY(-50%);
   }
 
   40%, 60%, 80% {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) rotate(90deg) translateY(-50%);
   }
 
   to {
-    -webkit-transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
-            transform: translateX(-50%) translateY(100%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+    -webkit-transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
+            transform: translateX(0%) translateY(0%) scale3d(1, 1, 1) rotate(90deg) translateY(-50%);
   }
 
 }
@@ -855,8 +882,8 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕翻转*/
    from {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg) translateX(-50%) ;
-            transform: perspective(400px) rotate3d(0, 1, 0, 90deg) translateX(-50%) ;
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg) ;
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg) ;
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
     -webkit-transform-origin: 0% 50%;
@@ -865,8 +892,8 @@ html,page{
   }
 
   40% {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  translateX(-50%);
-            transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  translateX(-50%);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  ;
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  ;
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
     -webkit-transform-origin: 0% 50%;
@@ -874,8 +901,8 @@ html,page{
   }
 
   60% {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  translateX(-50%);
-            transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  translateX(-50%);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  ;
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  ;
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     -webkit-transform-origin: 0% 50%;
@@ -884,8 +911,8 @@ html,page{
   }
 
   80% {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg) translateX(-50%);
-            transform: perspective(400px) rotate3d(0, 1, 0, -5deg) translateX(-50%);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg) ;
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg) ;
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     -webkit-transform-origin: 0% 50%;
@@ -893,8 +920,8 @@ html,page{
   }
 
   to {
-    -webkit-transform: perspective(400px) translateX(-50%);
-            transform: perspective(400px) translateX(-50%);
+    -webkit-transform: perspective(400px) ;
+            transform: perspective(400px) ;
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     -webkit-transform-origin: 0% 50%;
@@ -906,8 +933,8 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕翻转*/
    from {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg) translateX(-50%) ;
-            transform: perspective(400px) rotate3d(0, 1, 0, 90deg) translateX(-50%) ;
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg) ;
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg)  ;
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
     -webkit-transform-origin: 0% 50%;
@@ -916,8 +943,8 @@ html,page{
   }
 
   40% {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  translateX(-50%);
-            transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  translateX(-50%);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  ;
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg)  ;
     -webkit-animation-timing-function: ease-out;
             animation-timing-function: ease-out;
     -webkit-transform-origin: 0% 50%;
@@ -925,8 +952,8 @@ html,page{
   }
 
   60% {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  translateX(-50%);
-            transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  translateX(-50%);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  ;
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg)  ;
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     -webkit-transform-origin: 0% 50%;
@@ -935,8 +962,8 @@ html,page{
   }
 
   80% {
-    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg) translateX(-50%);
-            transform: perspective(400px) rotate3d(0, 1, 0, -5deg) translateX(-50%);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg) ;
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg) ;
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     -webkit-transform-origin: 0% 50%;
@@ -944,8 +971,8 @@ html,page{
   }
 
   to {
-    -webkit-transform: perspective(400px) translateX(-50%);
-            transform: perspective(400px) translateX(-50%);
+    -webkit-transform: perspective(400px) ;
+            transform: perspective(400px);
     -webkit-animation-timing-function: ease-in;
             animation-timing-function: ease-in;
     -webkit-transform-origin: 0% 50%;
@@ -959,40 +986,40 @@ html,page{
     20% {
         -webkit-transform-origin:0% 50%;
                 transform-origin:0% 50%; 
-        -webkit-transform:rotate3d(0, 0, 1, 25deg) translateX(-50%); 
-                transform:rotate3d(0, 0, 1, 25deg) translateX(-50%);
+        -webkit-transform:rotate3d(0, 0, 1, 25deg); 
+                transform:rotate3d(0, 0, 1, 25deg);
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     40% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-      -webkit-transform: rotate3d(0, 0, 1, -20deg) translateX(-50%); 
-              transform: rotate3d(0, 0, 1, -20deg) translateX(-50%); 
+      -webkit-transform: rotate3d(0, 0, 1, -20deg); 
+              transform: rotate3d(0, 0, 1, -20deg); 
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     60% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-      -webkit-transform: rotate3d(0, 0, 1, 10deg)  translateX(-50%); 
-              transform: rotate3d(0, 0, 1, 10deg)  translateX(-50%); 
+      -webkit-transform: rotate3d(0, 0, 1, 10deg); 
+              transform: rotate3d(0, 0, 1, 10deg); 
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     80% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-      -webkit-transform: rotate3d(0, 0, 1, -10deg) translateX(-50%); 
-              transform: rotate3d(0, 0, 1, -10deg) translateX(-50%); 
+      -webkit-transform: rotate3d(0, 0, 1, -10deg); 
+              transform: rotate3d(0, 0, 1, -10deg); 
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     100% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-        -webkit-transform:rotate3d(0, 0, 1, 0deg) translateX(-50%); 
-                transform:rotate3d(0, 0, 1, 0deg) translateX(-50%);
+        -webkit-transform:rotate3d(0, 0, 1, 0deg); 
+                transform:rotate3d(0, 0, 1, 0deg);
         /*transform: translateX(-50%) translateY(-250%);*/
 
     }
@@ -1004,40 +1031,40 @@ html,page{
     20% {
         -webkit-transform-origin:0% 50%;
                 transform-origin:0% 50%; 
-        -webkit-transform:rotate3d(0, 0, 1, 25deg) translateX(-50%); 
-                transform:rotate3d(0, 0, 1, 25deg) translateX(-50%);
+        -webkit-transform:rotate3d(0, 0, 1, 25deg); 
+                transform:rotate3d(0, 0, 1, 25deg);
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     40% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-      -webkit-transform: rotate3d(0, 0, 1, -20deg) translateX(-50%); 
-              transform: rotate3d(0, 0, 1, -20deg) translateX(-50%); 
+      -webkit-transform: rotate3d(0, 0, 1, -20deg); 
+              transform: rotate3d(0, 0, 1, -20deg); 
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     60% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-      -webkit-transform: rotate3d(0, 0, 1, 10deg)  translateX(-50%); 
-              transform: rotate3d(0, 0, 1, 10deg)  translateX(-50%); 
+      -webkit-transform: rotate3d(0, 0, 1, 10deg); 
+              transform: rotate3d(0, 0, 1, 10deg); 
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     80% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-      -webkit-transform: rotate3d(0, 0, 1, -10deg) translateX(-50%); 
-              transform: rotate3d(0, 0, 1, -10deg) translateX(-50%); 
+      -webkit-transform: rotate3d(0, 0, 1, -10deg); 
+              transform: rotate3d(0, 0, 1, -10deg); 
       /*transform: translateX(-50%) translateY(150%) ;*/
 
     }
     100% {
       -webkit-transform-origin:0% 50%;
               transform-origin:0% 50%; 
-        -webkit-transform:rotate3d(0, 0, 1, 0deg) translateX(-50%); 
-                transform:rotate3d(0, 0, 1, 0deg) translateX(-50%);
+        -webkit-transform:rotate3d(0, 0, 1, 0deg); 
+                transform:rotate3d(0, 0, 1, 0deg);
         /*transform: translateX(-50%) translateY(-250%);*/
 
     }
@@ -1047,18 +1074,18 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕抖动*/
   from, to {
-    -webkit-transform: translate3d(0, 0, 0) translateX(-50%);
-            transform: translate3d(0, 0, 0) translateX(-50%);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
 
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translate3d(-10px, 0, 0) translateX(-50%);
-            transform: translate3d(-10px, 0, 0) translateX(-50%);
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
   }
 
   20%, 40%, 60%, 80% {
-    -webkit-transform: translate3d(10px, 0, 0) translateX(-50%);
-            transform: translate3d(10px, 0, 0) translateX(-50%);
+    -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0);
   }
 
 }
@@ -1066,18 +1093,18 @@ html,page{
    /* 小程序百分比与样式保持一行间距，否则ios样式有问题 */
    /*弹幕抖动*/
   from, to {
-    -webkit-transform: translate3d(0, 0, 0) translateX(-50%);
-            transform: translate3d(0, 0, 0) translateX(-50%);
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
   }
 
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: translate3d(-10px, 0, 0) translateX(-50%);
-            transform: translate3d(-10px, 0, 0) translateX(-50%);
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
   }
 
   20%, 40%, 60%, 80% {
-    -webkit-transform: translate3d(10px, 0, 0) translateX(-50%);
-            transform: translate3d(10px, 0, 0) translateX(-50%);
+    -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0);
   }
 
 }
@@ -1088,36 +1115,36 @@ html,page{
   from {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1, 1, 1)  translateX(-50%); 
-            transform: scale3d(1, 1, 1)  translateX(-50%);
+    -webkit-transform: scale3d(1, 1, 1)  translateX(0%); 
+            transform: scale3d(1, 1, 1)  translateX(0%);
   }
 
   10%, 20% {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(-50%); 
-            transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(-50%);
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(0%); 
+            transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(0%);
   }
 
   30%, 50%, 70%, 90% {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(-50%); 
-            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(-50%);
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(0%); 
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(0%);
   }
 
   40%, 60%, 80% {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(-50%); 
-            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(-50%);
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(0%); 
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(0%);
   }
 
   to {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1, 1, 1)  translateX(-50%); 
-            transform: scale3d(1, 1, 1)  translateX(-50%);
+    -webkit-transform: scale3d(1, 1, 1)  translateX(0%); 
+            transform: scale3d(1, 1, 1)  translateX(0%);
   }
 
 }
@@ -1128,36 +1155,36 @@ html,page{
   from {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1, 1, 1)  translateX(-50%); 
-            transform: scale3d(1, 1, 1)  translateX(-50%);
+    -webkit-transform: scale3d(1, 1, 1)  translateX(0%); 
+            transform: scale3d(1, 1, 1)  translateX(0%);
   }
 
   10%, 20% {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(-50%); 
-            transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(-50%);
+    -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(0%); 
+            transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -0deg) translate3d(0,0,0) translateX(0%);
   }
 
   30%, 50%, 70%, 90% {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(-50%); 
-            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(-50%);
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(0%); 
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 7deg) translate3d(0,10%,0) translateX(0%);
   }
 
   40%, 60%, 80% {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(-50%); 
-            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(-50%);
+    -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(0%); 
+            transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -7deg) translate3d(0,10%,0) translateX(0%);
   }
 
   to {
     -webkit-transform-origin:0% 50%;
             transform-origin:0% 50%; 
-    -webkit-transform: scale3d(1, 1, 1)  translateX(-50%); 
-            transform: scale3d(1, 1, 1)  translateX(-50%);
+    -webkit-transform: scale3d(1, 1, 1)  translateX(0%); 
+            transform: scale3d(1, 1, 1)  translateX(0%);
   }
 
 }
@@ -1633,7 +1660,7 @@ html,page{
             transform-origin: 50% 50%;
   }
 }
-@-webkit-keyframes pic_2flipInY{
+@-webkit-keyframes pic_2flipInY1{
   from {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg) rotate3d(0, 0, 1, 90deg);
             transform: perspective(400px) rotate3d(0, 1, 0, 90deg) rotate3d(0, 0, 1, 90deg);

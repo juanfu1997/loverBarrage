@@ -109,8 +109,27 @@ Page({
     showType:true,
     textarea:true,
     play:true,
+    closeBgmusic:'music.png',
+    showTab:true,
 
   
+  },
+  closeBgmusic(){
+    var that = this
+    var barrage_data = that.data.barrage_data
+    var closeBgmusic = that.data.closeBgmusic
+    if(closeBgmusic == 'music.png'){
+      closeBgmusic = 'close_music.png'
+      barrage_data.bgmusic = ''
+    }else{
+      closeBgmusic = 'music.png'
+      barrage_data.bgmusic = 'https:www.korjo.cn/xcx/loverBarrage/music/0.mp3'
+
+    }
+    that.setData({
+      closeBgmusic,
+      barrage_data,
+    })
   },
   playRecord(){
     var that = this
@@ -153,17 +172,42 @@ Page({
     var that = this
     // that.backgroundAudioManager.src = that.data.video
     // const backgroundAudioManager = wx.getBackgroundAudioManager()
+    // wx.downloadFile({
+    //   url: 'https://www.korjo.cn/xcx/loverBarrage/music/0.mp3', //仅为示例，并非真实的资源
+    //   success: function(res) {
+    //     // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+    //     if (res.statusCode === 200) {
+          that.backgroundAudioManager.title = title
+          that.backgroundAudioManager.singer = singer
+          that.backgroundAudioManager.coverImgUrl = coverImgUrl
+          // that.backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46' // 设置了 src 之后会自动播放
+          that.backgroundAudioManager.src = src
+          console.log('背景音乐',src)
+            // wx.playVoice({
+            //   filePath: res.tempFilePath
+            // })
+    //     }
+        
+    //   },
+    //   fail(res){
+    //       console.log('背景音乐',src)
+    //     console.log(res)
+    //   }
+    // })
+    
 
-    that.backgroundAudioManager.title = title
-    that.backgroundAudioManager.singer = singer
-    that.backgroundAudioManager.coverImgUrl = coverImgUrl
-    // that.backgroundAudioManager.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E061FF02C31F716658E5C81F5594D561F2E88B854E81CAAB7806D5E4F103E55D33C16F3FAC506D1AB172DE8600B37E43FAD&fromtag=46' // 设置了 src 之后会自动播放
-    that.backgroundAudioManager.src = src
     // that.recorderManager.onStop((res) => {
     //   // const { frameBuffer } = res
     //   console.log('res',res,)
     //   console.log('frameBuffer.byteLength',res.tempFilePath)
     // })
+
+     // wx.playVoice({
+     //    filePath:src,
+     //    complete(res){
+     //      console.log(11111,res)
+     //    }
+     // })
   },
   closeRecord(){
     var that = this
@@ -373,6 +417,8 @@ Page({
     var textareaWidth = windowWidth*0.52
     var textareaHeight = parseInt(windowHeight*0.05)
     var textarea = that.data.textarea
+    var barrage_data = that.data.barrage_data 
+    barrage_data.textarea = _value
     if(_value.length<=8){
       font_size = 11.5
     }
@@ -386,12 +432,13 @@ Page({
     // var right = value.substr(midIndex)
     // value = left+'\n'+right
     // font_size = Number(font_size)
-    console.log('font_size',font_size)
+    console.log('font_size',font_size,barrage_data)
     that.setData({
       textareaWidth,
       textareaHeight,
       font_size,
       value:_value,
+      barrage_data,
       textarea:true,
       type_image:'',
     })
@@ -442,13 +489,20 @@ Page({
       url: '/pages/set/set'
     })
   },
-  btn_senior(){},
+  btn_senior(){
+    var that = this
+    var showTab = that.data.showTab
+    that.setData({
+      showTab:!showTab
+    })
+  },
   btn_save(){
     var that = this;
     var tab = that.data.tab;
     var flag = true;
     var barrage_data = that.data.barrage_data;
     var picture_style = that.data.picture_style;
+      console.log('barrage_data1',barrage_data.textarea)
 
     for(var i = 0;i<tab.length;i++){
       if(tab[i].check==false){
@@ -470,6 +524,7 @@ Page({
     }
     if(flag){
       wx.setStorageSync("barrage_data",barrage_data);
+      console.log('barrage_data',barrage_data)
       wx.setStorageSync("picture_style",picture_style);
 
       wx.navigateTo({
