@@ -1,5 +1,5 @@
 <view class="main">
-	<image class="filter" src="/images/loveSet_bg.jpg"></image>
+	<image class="filter" src="{{img}}loveSet_bg.jpg"></image>
     <view class="btn_senior" bindtap="btn_senior">高级</view>
     <view class="btn_reset" >
     	<view class="reset" bindtap="btn_reset">重置</view>
@@ -60,7 +60,7 @@
 		    	<view class="font_tips">请点击上传图片，最多上传2张</view>
 		    	<view class="picture_box">
 		    		<view class="picture_style" wx:for="{{picture_style}}" wx:key="picture"  data-id="{{index}}" bindtap="addPicture">
-		    			<image class="picture_logo" src="/images/picture_logo.png" bindtap=""></image>
+		    			<image class="picture_logo" src="{{img}}picture_logo.png" bindtap=""></image>
 		    			<view class="addText">添加图片</view>
 		    			<image class="addPicture" mode="aspectFit" style="" src="{{item.picture}}"></image>
 		    		</view>

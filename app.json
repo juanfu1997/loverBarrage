@@ -2,6 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/barrage/barrage",
+    "pages/faq/faq",
     "pages/set/set"
   ],
   "window":{

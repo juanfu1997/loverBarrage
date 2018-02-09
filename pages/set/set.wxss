@@ -75,16 +75,19 @@ page{
 .reset{
 	padding: 8rpx 16rpx;
   	border-radius: 10rpx;
-  	border:2rpx solid #ccc;
+  	border:2rpx solid #eb6877;
+    color: #ee9ebd;
+  	background-color: #fff;
 }
 .btn_senior{
 	position: absolute;
 	left: 5%;
 	top: 20rpx;
-  	color: #a1a1a1;
   	padding: 8rpx 16rpx;
   	border-radius: 10rpx;
-  	border:2rpx solid #ccc;
+  	border:2rpx solid #eb6877;
+    color: #ee9ebd;
+  	background-color: #fff;
   	/*border-bottom: 2rpx solid #ccc;*/
 }
 .btn_save{

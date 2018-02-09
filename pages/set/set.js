@@ -16,15 +16,15 @@ Page({
   data: {
     img:getApp().globalData.img,
     tab:[
-         {image:"/images/content.png",txt:"内容",class:'tab_choiced',check:false},
-         {image:"/images/font.png",txt:"字体",class:'tab_choice',check:true},
-         {image:"/images/size.png",txt:"大小",class:'tab_choice',check:true},
-         {image:"/images/color.png",txt:"颜色",class:'tab_choice',check:true},
-         {image:"/images/picture.png",txt:"图片",class:'tab_choice',check:true},
-         {image:"/images/record.png",txt:"录音",class:'tab_choice',check:true},
-         {image:"/images/bgmusic.png",txt:"音乐",class:'tab_choice',check:true},
-         {image:"/images/effect.png",txt:"效果",class:'tab_choice',check:true},
-         {image:"/images/direction.png",txt:"方向",class:'tab_choice',check:true}
+         {image:getApp().globalData.img+"content.png",txt:"内容",class:'tab_choiced',check:false},
+         {image:getApp().globalData.img+"font.png",txt:"字体",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"size.png",txt:"大小",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"color.png",txt:"颜色",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"picture.png",txt:"图片",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"record.png",txt:"录音",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"bgmusic.png",txt:"音乐",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"effect.png",txt:"效果",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"direction.png",txt:"方向",class:'tab_choice',check:true}
     ],
     // tab_type:'tab_choice',
     screen:{
@@ -34,7 +34,7 @@ Page({
     music_list:{musicNum:20,choiced:0},
     windowWidth:getApp().globalData.windowWidth,
     windowHeight:getApp().globalData.windowHeight,
-    barrage_data: { textarea: "", font: "SimHei", size: "200rpx", color: "#e4ff00", picture_1: "", picture_2: "", effect: "none", direction:"vertical",bgmusic:getApp().globalData.music+'0.mp3',record:''},
+    barrage_data: { textarea: "", font: "SimHei", size: "200rpx", color: "#fb6e87", picture_1: "", picture_2: "", effect: "none", direction:"vertical",bgmusic:getApp().globalData.music+'0.mp3',record:''},
     preset_list:[
       { txt: "欢迎回家", choiced:""},
          { txt: "团友们 请集合", choiced: ""},
@@ -56,21 +56,21 @@ Page({
       { style: "小", size: "30rpx ", size_view: "30rpx", choiced: ""},
          ],
     color_style:[
-      { style: "1", color: "#e4ff00", choiced: "color:#7dbd29;"},
-      { style: "2", color: "#bdde35", choiced: ""},
-      { style: "3", color: "#5cffdd", choiced: ""},
-      { style: "4", color: "#49d6ff", choiced: ""},
-      { style: "5", color: "#457cf9", choiced: ""},
-      { style: "6", color: "#ac93ff", choiced: ""},
-      { style: "7", color: "#eea9ff", choiced: ""},
-      { style: "8", color: "#ff449c", choiced: ""},
-      { style: "9", color: "#fe2433", choiced: ""},
-      { style: "10", color: "#ff520e", choiced: ""},
-      { style: "11", color: "#ffae00", choiced: ""},
-      { style: "12", color: "#f8cc00", choiced: ""},
-      { style: "13", color: "#ffb7d6", choiced: ""},
-      { style: "14", color: "#b0f6fc", choiced: ""},
-      { style: "15", color: "#ffffff", choiced: ""},
+      { style: "1", color: "#fb6e87", choiced: "color:#7dbd29;"},
+      { style: "2", color: "#d7576b", choiced: ""},
+      { style: "3", color: "#a5738f", choiced: ""},
+      { style: "4", color: "#ea68a2", choiced: ""},
+      { style: "5", color: "#d04b7a", choiced: ""},
+      { style: "6", color: "#e83c8b", choiced: ""},
+      { style: "7", color: "#e50051", choiced: ""},
+      { style: "8", color: "#de6c8e", choiced: ""},
+      { style: "9", color: "#c70310", choiced: ""},
+      { style: "10", color: "#c379df", choiced: ""},
+      { style: "11", color: "#ff530d", choiced: ""},
+      { style: "12", color: "#62c4a0", choiced: ""},
+      { style: "13", color: "#86c3eb", choiced: ""},
+      { style: "14", color: "#62bac8", choiced: ""},
+      { style: "15", color: "#1c3770", choiced: ""},
          ],
     picture_style:[
       { style: "最大", size: "80rpx", picture: "", choiced: "color:#7dbd29;"},
@@ -84,8 +84,8 @@ Page({
       { style: "放大抖动", effect: "tada ", choiced: ""},
          ],
     direction_style:[
-      { style: "vertical", direction: "vertical_icon", icon: "/images/verticaled.png", choiced: "color:#7dbd29;"},
-      { style: "transverse", direction: "transverse_icon", icon: "/images/transverse.png", choiced: ""},
+      { style: "vertical", direction: "vertical_icon", icon: getApp().globalData.img+"verticaled.png", choiced: "color:#7dbd29;"},
+      { style: "transverse", direction: "transverse_icon", icon: getApp().globalData.img+"transverse.png", choiced: ""},
     ],
     type:[
       {type:'初识'},
@@ -321,12 +321,12 @@ Page({
       switch(id)
         {
         case 0:
-          direction_style[0].icon = "/images/verticaled.png";
-          direction_style[1].icon = "/images/transverse.png";      
+          direction_style[0].icon = getApp().globalData.img+"verticaled.png";
+          direction_style[1].icon = getApp().globalData.img+"transverse.png";      
           break;
         case 1:
-          direction_style[0].icon = "/images/vertical.png";
-          direction_style[1].icon = "/images/transversed.png";
+          direction_style[0].icon = getApp().globalData.img+"vertical.png";
+          direction_style[1].icon = getApp().globalData.img+"transversed.png";
           break;
         default:
           console.log('选择屏幕方向出错')
@@ -351,7 +351,7 @@ Page({
       direction_style:direction_style,
       tab:tab,
       barrage_data: barrage_data,
-      type_image:'',
+      type_image:false,
       value,
       textarea,
     })
@@ -440,7 +440,7 @@ Page({
       value:_value,
       barrage_data,
       textarea:true,
-      type_image:'',
+      type_image:false,
     })
   },
   setType(e){

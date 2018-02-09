@@ -12,6 +12,11 @@ Page({
   url: '/pages/set/set'
 })
   },
+  goFaq(){
+      wx.navigateTo({
+        url: '/pages/faq/faq',
+      })
+    },
   showQrcode(e) {
     const url = 'http://www.korjo.cn/xcx/geographyImg/qrcode.jpg'
     wx.previewImage({

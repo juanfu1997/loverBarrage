@@ -1,4 +1,3 @@
-var aldstat = require("./utils/ald-stat.js");
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -39,7 +38,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    img:'/images/',
+    appid:76,
+    img:'https://www.korjo.cn/xcx/loverBarrage/',
     music:'https://www.korjo.cn/xcx/loverBarrage/music/',
     korjo:'https://www.korjo.cn',
     windowWidth:'',

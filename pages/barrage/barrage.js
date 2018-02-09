@@ -54,8 +54,8 @@ Page({
          {style:"放大抖动",effect:"tada "},
          ],
     direction_style:[
-         {style:"",direction:"vertical_icon",icon:"/images/vertical.png"},
-         {style:"",direction:"transverse_icon",icon:"/images/transverse.png"},
+         {style:"",direction:"vertical_icon",icon:getApp().globalData.img+"vertical.png"},
+         {style:"",direction:"transverse_icon",icon:getApp().globalData.img+"transverse.png"},
     ],
     direction:"",
     barrage_data:{textarea:"",font:"",size:"",color:"",picture:"",effect:"",direction:"",MinWidth:"",MaxWidth:"",MixHeight:"",MaxHeight:"",LineHeight:"",width:"",height:"",length:"",},
@@ -65,6 +65,7 @@ Page({
     textarea_1:"",
     textarea_2:"",
     style_class:"",
+    img:getApp().globalData.img,
     
   },
   btn_exit(){

@@ -14,5 +14,6 @@
 
 	</view>
 		<image class="ufo" src="http://www.korjo.cn/xcx/geographyImg/ufo.png" mode='widthFix' bindtap='showQrcode'></image>
+    <view class="fansme"catchtap='goFaq'>粉我吧科技出品</view>
 
 </view>
