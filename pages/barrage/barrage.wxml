@@ -7,13 +7,15 @@
     <view style="position: absolute;left: 0;top: 0;">
         <audio style="width: 1px;height: 1px;" src="http://sc1.111ttt.cn/2017/1/11/11/304112002347.mp3" paused="false"></audio>
     </view>
-    <view class="barrage_box" >
+    <view class="barrage_box" style="{{style_class?'height:'+barrage_height:''}}{{style_class?'rpx':''}}">
     	
-    		<view wx:if="{{style_class}}" class="{{barrage_class}}" style="{{animation}};line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};min-height:{{barrage_data.MinHeight}}rpx;max-height:{{barrage_data.MaxHeight}}rpx; width:{{barrage_data.width}}rpx;font-family: {{barrage_data.font}};" >{{barrage_data.textarea}}</view> 
+    		<view wx:if="{{style_class}}" class="{{barrage_class}}" style="{{animation}};line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};height:200rpx; width:{{barrage_data.width}}rpx;font-family: {{barrage_data.font}};" >{{barrage_data.textarea}}
+        <!-- <view style="height:600px;"></view> -->
+        </view> 
       
-	      <view wx:if="!{{style_class}}" class="vertical" style="{{animation}}; height: {{barrage_data.height}}rpx;min-width:{{barrage_data.MinWidth}}rpx;max-width:{{barrage_data.MaxWidth}}rpx;line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};font-family: {{barrage_data.font}};">
-	      		<view wx:if="{{textarea_2}}" style="width: {{barrage_data.size}};">{{textarea_2}}</view>
-	      		<view  style="width: {{barrage_data.size}};">{{textarea_1}}</view>
+	      <view wx:if="{{!style_class}}" class="vertical" style="{{animation}}; height: {{barrage_data.height}}rpx;min-width:{{barrage_data.MinWidth}}rpx;max-width:{{barrage_data.MaxWidth}}rpx;line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};font-family: {{barrage_data.font}};">
+	      		<!-- <view wx:if="{{textarea_2}}" style="width: {{barrage_data.size}};">{{textarea_2}}</view> -->
+	      		<view  style="width: {{barrage_data.size}};">{{barrage_data.textarea}}</view>
 	      </view>
     	
     	<view >

@@ -15,6 +15,7 @@ Page({
    */
   data: {
     img:getApp().globalData.img,
+    korjo:getApp().globalData.korjo,
     tab:[
          {image:getApp().globalData.img+"content.png",txt:"内容",class:'tab_choiced',check:false},
          {image:getApp().globalData.img+"font.png",txt:"字体",class:'tab_choice',check:true},
@@ -368,23 +369,25 @@ Page({
       success: function (res) {
     // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
       var tempFilePaths = res.tempFilePaths;
-      
-      picture_style[id].picture = tempFilePaths;
-      switch(id)
-        {
-        case 0:
-          barrage_data.picture_1 = tempFilePaths;
-          break;
-        case 1:
-          barrage_data.picture_2 = tempFilePaths;
-          break;
-        default:
-          console.log('图片路径出错')
+      $.adminUpload(res.tempFilePaths[0],'image',function(re){
+        // console.log('iamges', res.tempFilePaths, re, res.tempFilePaths)
+        picture_style[id].picture = that.data.korjo + re.data;
+        switch (id) {
+          case 0:
+            barrage_data.picture_1 = that.data.korjo + re.data;
+            break;
+          case 1:
+            barrage_data.picture_2 = that.data.korjo + re.data;
+            break;
+          default:
+            console.log('图片路径出错')
         }
 
-      that.setData({
-        picture_style:picture_style
+        that.setData({
+          picture_style: picture_style
+        })
       })
+     
       // wx.previewImage({
       //   current: '', // 当前显示图片的http链接
       //   urls: [tempFilePaths] // 需要预览的图片http链接列表
@@ -492,8 +495,17 @@ Page({
   btn_senior(){
     var that = this
     var showTab = that.data.showTab
+    var screen = that.data.screen
+    var tab = that.data.tab
+    $.each(tab,(i,v) => {
+      v.class = 'tab_choice'
+    })
+    tab[0].class = 'tab_choiced'
+    screen.HdIndex = screen.BdIndex = 0
     that.setData({
-      showTab:!showTab
+      showTab:!showTab,
+      screen,
+      tab,
     })
   },
   btn_save(){

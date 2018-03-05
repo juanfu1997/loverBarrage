@@ -9,7 +9,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.6.7",
-	"appid": "wx5c36561a554d4522",
+	"appid": "wx3cfc14fc914fc9b3",
 	"projectname": "%E7%88%B1%E6%83%85%E5%B0%8F%E5%BC%B9%E5%B9%95",
 	"condition": {
 		"search": {
@@ -39,7 +39,7 @@
 					"id": 2,
 					"name": "bar",
 					"pathName": "pages/barrage/barrage",
-					"query": ""
+					"query": "barrage_data=%7B%22textarea%22%3A%22%E5%BE%88%E5%BC%80%E5%BF%83%E8%AE%A4%E8%AF%86%E4%BD%A0%22%2C%22font%22%3A%22SimHei%22%2C%22size%22%3A%22200rpx%22%2C%22color%22%3A%22%23fb6e87%22%2C%22picture%22%3A%22%22%2C%22effect%22%3A%22none%22%2C%22direction%22%3A%22vertical%22%2C%22MinWidth%22%3A%22200%22%2C%22MaxWidth%22%3A400%2C%22MixHeight%22%3A%22%22%2C%22MaxHeight%22%3A%22%22%2C%22LineHeight%22%3A%22200%22%2C%22width%22%3A%22%22%2C%22height%22%3A800%2C%22length%22%3A1000%2C%22bgmusic%22%3A%22https%3A%2F%2Fwww.korjo.cn%2Fxcx%2FloverBarrage%2Fmusic%2F0.mp3%22%2C%22record%22%3A%22%22%2C%22bgminheight%22%3A800%7D&picture1=undefined&picture2=undefined"
 				}
 			]
 		}
