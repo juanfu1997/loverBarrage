@@ -1,5 +1,5 @@
 <view class="main">
-    <image style="width: 100%;height: 100%;" src="{{img}}barrageBg.jpg"></image>
+    <!-- <image style="width: 100%;height: 100%;" src="{{img}}barrageBg.jpg"></image> -->
 	<view class="{{style_class? 'btn2': 'btn'}}">
         	<view bindtap="btn_exit" class="btn_exit">关闭</view>
         	<view bindtap="btn_back" class="btn_back">返回</view>
@@ -9,14 +9,20 @@
     </view>
     <view class="barrage_box" style="{{style_class?'height:'+barrage_height:''}}{{style_class?'rpx':''}}">
     	
-    		<view wx:if="{{style_class}}" class="{{barrage_class}}" style="{{animation}};line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};height:200rpx; width:{{barrage_data.width}}rpx;font-family: {{barrage_data.font}};" >{{barrage_data.textarea}}
+    		<view wx:if="{{style_class}}" class="{{barrage_class}}" style="{{animation}};line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};height:200rpx; width:{{barrage_data.width}}rpx;font-family: {{barrage_data.font}};"  hidden="{{!barrage_data.textarea}}">{{barrage_data.textarea}}
         <!-- <view style="height:600px;"></view> -->
-        </view> 
+            </view> 
+        <view style="width: 100%;background-color: #F8F8F8;"  hidden="{{!barrage_data.canvas}}">
+            <image class="picture" style="width: 100%;" mode="widthFix" src="{{barrage_data.canvas}}" ></image>
+        </view>
       
-	      <view wx:if="{{!style_class}}" class="vertical" style="{{animation}}; height: {{barrage_data.height}}rpx;min-width:{{barrage_data.MinWidth}}rpx;max-width:{{barrage_data.MaxWidth}}rpx;line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};font-family: {{barrage_data.font}};">
+	      <view wx:if="{{!style_class}}" class="vertical" style="{{animation}}; height: {{barrage_data.height}}rpx;min-width:{{barrage_data.MinWidth}}rpx;max-width:{{barrage_data.MaxWidth}}rpx;line-height:{{barrage_data.LineHeight}}rpx;color:{{barrage_data.color}};font-size:{{barrage_data.size}};font-family: {{barrage_data.font}};" hidden="{{!barrage_data.textarea}}">
 	      		<!-- <view wx:if="{{textarea_2}}" style="width: {{barrage_data.size}};">{{textarea_2}}</view> -->
 	      		<view  style="width: {{barrage_data.size}};">{{barrage_data.textarea}}</view>
 	      </view>
+          <!-- <view style="width: 100%;background-color: #F8F8F8;" hidden="{{!barrage_data.canvas}}">
+            <image style="width: 100%;" mode="widthFix" src="{{barrage_data.canvas}}" ></image>
+          </view> -->
     	
     	<view >
     		<image wx:for="{{picture_style}}" wx:key="picture_{{index+1}}"  class="{{picture_class}}" style="{{picture_2}}; {{item.display}};" mode="aspectFit" src="{{item.picture}}"></image>  

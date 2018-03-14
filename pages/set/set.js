@@ -7,6 +7,7 @@ const op = {
       format: 'mp3',
       frameSize: 50
     }
+
 const $ = require('../../utils/common.js')
 Page({
 
@@ -25,7 +26,8 @@ Page({
          {image:getApp().globalData.img+"record.png",txt:"录音",class:'tab_choice',check:true},
          {image:getApp().globalData.img+"bgmusic.png",txt:"音乐",class:'tab_choice',check:true},
          {image:getApp().globalData.img+"effect.png",txt:"效果",class:'tab_choice',check:true},
-         {image:getApp().globalData.img+"direction.png",txt:"方向",class:'tab_choice',check:true}
+         {image:getApp().globalData.img+"direction.png",txt:"方向",class:'tab_choice',check:true},
+         {image:getApp().globalData.img+"direction.png",txt:"画布",class:'tab_choice',check:false},
     ],
     // tab_type:'tab_choice',
     screen:{
@@ -35,7 +37,7 @@ Page({
     music_list:{musicNum:20,choiced:0},
     windowWidth:getApp().globalData.windowWidth,
     windowHeight:getApp().globalData.windowHeight,
-    barrage_data: { textarea: "", font: "SimHei", size: "200rpx", color: "#fb6e87", picture_1: "", picture_2: "", effect: "none", direction:"vertical",bgmusic:getApp().globalData.music+'0.mp3',record:''},
+    barrage_data: { textarea: "", font: "SimHei", size: "200rpx", color: "#fb6e87", picture_1: "", picture_2: "", effect: "none", direction:"vertical",bgmusic:getApp().globalData.music+'0.mp3',record:'',canvas:''},
     preset_list:[
       { txt: "欢迎回家", choiced:""},
          { txt: "团友们 请集合", choiced: ""},
@@ -44,13 +46,13 @@ Page({
          { txt: "嫁给我吧", choiced: ""},
          ],
     font_style:[
-      { style: "黑体", family: "SimHei", choiced: "color:#f29c9f;"},
+      { style: "黑体", family: "SimHei", choiced: "color:#7dbd29;"},
       { style: "书宋", family: "HYA1GJ", choiced: ""},
       { style: "仿宋", family: "FangSong", choiced: ""},
       { style: "楷书", family: "KaiTi", choiced: ""},
          ],
     size_style:[
-      { style: "最大", size: "200rpx", size_view: "80rpx", choiced: "color:#f29c9f;"},
+      { style: "最大", size: "200rpx", size_view: "80rpx", choiced: "color:#7dbd29;"},
       { style: "较大", size: "150rpx", size_view: "70rpx", choiced: ""},
       { style: "大", size: "100rpx ", size_view: "60rpx",choiced: ""},
       { style: "中", size: "60rpx ", size_view: "50rpx",choiced: "" },
@@ -106,16 +108,41 @@ Page({
       {type:'道歉',image:'apologize.jpg',show:false,json:getApp().globalData.apologize},
     ],
     type_image:'envelope.png',
-    type_demo:[],
+    type_demo:[
+      { txt: "欢迎回家", choiced:""},
+         { txt: "团友们 请集合", choiced: ""},
+         { txt: "生日快乐", choiced: ""},
+         { txt: "我爱你", choiced: ""},
+         { txt: "嫁给我吧", choiced: ""},
+         ],
     showType:true,
     textarea:true,
     play:true,
     closeBgmusic:'music.png',
-    showTab:true,
+    showTab:false,
 
   
   },
-  closeBgmusic(){
+  
+
+  // draw_keep(e){
+  //   console.log(e)
+  //   var e.touches[0]
+  // },
+  preCanvas(){
+    var that = this
+    wx.previewImage({
+      current: '', // 当前显示图片的http链接
+      urls: [], // 需要预览的图片http链接列表
+    })
+  },
+  Handwriting(){
+      wx.navigateTo({
+        url:`/pages/canvas/canvas`
+      })
+  },
+
+  closeBgmusic(music){
     var that = this
     var barrage_data = that.data.barrage_data
     var closeBgmusic = that.data.closeBgmusic
@@ -137,7 +164,7 @@ Page({
     var barrage_data = that.data.barrage_data
     var music_list = that.data.music_list
     barrage_data.record = that.data.video
-    $.alter('*提示*','录音和音频同事只能选择一个',function(){
+    $.alter('*提示*','录音和音频同时只能选择一个',function(){
       music_list.choiced = -1
       barrage_data.bgmusic = ''
       barrage_data.record = that.data.video
@@ -156,14 +183,17 @@ Page({
     var barrage_data = that.data.barrage_data
     var music_list = that.data.music_list
     var src = getApp().globalData.music + e.target.dataset.index+'.mp3'
+    var closeBgmusic = that.data.closeBgmusic
     // music_list.choiced = true
     barrage_data.record = ''
     barrage_data.bgmusic = src
     music_list.choiced = index
+    
 
     that.setData({
       barrage_data,
       music_list,
+      closeBgmusic:'music.png',
       // music_choiced:index,
     })
     // console.log(e)
@@ -241,7 +271,7 @@ Page({
   },
   addRecord(){
     var that = this
-    that.recorderManager.start(op)
+    that.recorderManager.start()
   },
   edit(e){
     var that = this
@@ -276,19 +306,19 @@ Page({
       that.setFontSize(value)
       parsent = preset_list
     // console.log('parsent',parsent,id)
-      childStyle = 'color:#f29c9f'
+      childStyle = 'color:#7dbd29'
       value = barrage_data.textarea = preset_list[id].txt
       textarea = true
       break;  
     case '1':
       parsent = font_style
     console.log('parsent',parsent)
-      childStyle = 'color:#f29c9f'
+      childStyle = 'color:#7dbd29'
       barrage_data.font = font_style[id].font
       break;
     case '2':
       parsent = size_style
-      childStyle = 'color:#f29c9f'
+      childStyle = 'color:#7dbd29'
       barrage_data.size = size_style[id].size
       break;
     case '3':
@@ -299,7 +329,7 @@ Page({
       break;
     case '4':
       parsent = pictrue_style
-      childStyle = 'color:#f29c9f'
+      childStyle = 'color:#7dbd29'
       barrage_data.picture = color_style[id].picture;
       break;
     // case '5':
@@ -312,7 +342,7 @@ Page({
     //   break;
     case '7':
       parsent = effect_style
-      childStyle = 'color:#f29c9f'
+      childStyle = 'color:#7dbd29'
       barrage_data.effect = effect_style[id].effect;
       break;
     case '8':
@@ -514,26 +544,68 @@ Page({
     var flag = true;
     var barrage_data = that.data.barrage_data;
     var picture_style = that.data.picture_style;
+    var canvas  =that.data.canvas
       console.log('barrage_data1',barrage_data.textarea)
+      
 
     for(var i = 0;i<tab.length;i++){
-      if(tab[i].check==false){
+      if(i == 0 || i == tab.length-1){
+        if(tab[0].check==true || tab[tab.length-1].check == true){
+          flag = true;
+        console.log('i',i)
+
+        }else{
+          flag = false
+          wx.showModal({
+            title: '提示',
+            content: '请设置弹幕的内容或画布',
+            success: function(res) {
+              if (res.confirm) {
+
+              } else if (res.cancel) {
+
+              }
+            }
+          })
+        }
+
+      }else{
+        console.log(i)
+        if(tab[i].check==false){
         flag = false;
         wx.showModal({
-        title: '提示',
-        content: '请设置弹幕的'+tab[i].txt,
-        success: function(res) {
-          if (res.confirm) {
+          title: '提示',
+          content: '请设置弹幕的'+tab[i].txt,
+          success: function(res) {
+            if (res.confirm) {
 
-          } else if (res.cancel) {
+            } else if (res.cancel) {
 
+            }
           }
-        }
-      })
+        })
         break;  //数据传输速度块，弹窗显示最后一个，加上break强制退出循环
       }
+      }
+      
       
     }
+    // if(tab[0].check == true || tab[tab.length-1].check == true){
+    //   flag = true
+    // }else{
+    //   flag  = false
+    //   wx.showModal({
+    //     title: '提示',
+    //     content: '请设置弹幕的'+tab[i].txt,
+    //     success: function(res) {
+    //       if (res.confirm) {
+
+    //       } else if (res.cancel) {
+
+    //       }
+    //     }
+    //   })
+    // }
     if(flag){
       wx.setStorageSync("barrage_data",barrage_data);
       console.log('barrage_data',barrage_data)
@@ -542,6 +614,7 @@ Page({
       wx.navigateTo({
         url: '/pages/barrage/barrage'
       })
+      console.log(barrage_data)
     }else{
 
     }  
@@ -648,6 +721,8 @@ Page({
     var that = this
     var type_demo = that.data.type_demo
     var type_list = that.data.type_list
+    var tab = that.data.tab
+    var barrage_data = that.data.barrage_data
 
     const recorderManager = wx.getRecorderManager()
     that.recorderManager = recorderManager
@@ -659,6 +734,20 @@ Page({
     recorderManager.onError((res) => {
       console.log('onError start',res)
     })
+    console.log(options)
+    if(options.canvas){
+      tab[9].check = true
+      barrage_data.canvas = options.canvas
+      that.setData({
+        canvas:options.canvas,
+        tab,
+        barrage_data,
+      })
+    }
+    
+    // that.Handwriting()
+
+
     
 
     // recorderManager.start(op)
@@ -671,7 +760,31 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    // var that = this
+    // const data = new Uint8ClampedArray([255, 0, 0, 1])
+    
+    // var ctx = wx.createCanvasContext('myCanvas');
+    // ctx.setFillStyle('red')
+    // ctx.fillRect(0, 0, 200, 200)
+    // ctx.draw()
+    // wx.canvasGetImageData({
+    //   canvasId: 'myCanvas',
+    //   x: 0,
+    //   y: 0,
+    //   width: 200,
+    //   height: 200,
+    //   success(res) {
+    //     console.log(res.width) // 100
+    //     console.log(res.height) // 100
+    //     console.log(res.data instanceof Uint8ClampedArray) // true
+    //     console.log(res.data.length) // 100 * 100 * 4
+    //     that.Handwriting()
+    //   },fail(res){
+    //     console.log(res)
+    //   }
+    // })
+    // ctx.strokeText('11', 100, 100, 20)
+    // ctx.draw()
   },
 
   /**

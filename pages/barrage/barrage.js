@@ -106,11 +106,15 @@ Page({
   onLoad: function (options) {
     var that = this;
     var barrage_data = that.data.barrage_data
-    var  picture_style;
+    var  picture_style = that.data.picture_style;
     console.log('opstion',options)
    if(options.barrage_data){
      barrage_data = decodeURIComponent(options.barrage_data)
      barrage_data = JSON.parse(barrage_data)
+     if(options.picture_style){
+        picture_style = decodeURIComponent(options.picture_style)
+        picture_style = JSON.parse(picture_style)
+     }
      
     // barrage_data = options.barrage_data
     // console.log(typeof options.barrage_data)
@@ -151,6 +155,7 @@ Page({
     }else{
       video_src = barrage_data.record
     }
+    console.log('video_src',video_src)
     that.video('音频','爱情小弹幕','',video_src)
 
     
@@ -352,14 +357,15 @@ Page({
     var path = textarea + ',' + font + ',' + size + ','+ color+','+ + effect + ',' + direction + ',' + bgmusic + ',' + record
     path = encodeURIComponent(path)
     barrage_data = encodeURIComponent(barrage_data)
+    picture_style = encodeURIComponent(picture_style)
     return {
       title: '爱情小弹幕',
-      path: `/pages/barrage/barrage?path=${path}&picture1=${barrage_data.picture1}&picture2=${barrage_data.picture2}`,
+      path: `/pages/barrage/barrage?barrage_data=${barrage_data}&picture_style=${picture_style}`,
       // path: '/pages/barrage/barrage?textarea='+that.data.barrage_data.textarea+'&font='+that.data.barrage_data.font+'&color='+that.data.barrage_data.color+'&size='+that.data.barrage_data.size+'&effect='+that.data.barrage_data.effect+'&direction='+that.data.barrage_data.direction+'&bgmusic='+that.data.barrage_data.bgmusic+'&record='+that.data.barrage_data.record+'&picture1='+that.data.barrage_data.picture1+'&picture2='+that.data.barrage_data.picture2,
-
+ // path: `/pages/barrage/barrage?barrage_data=${barrage_data}&picture1=${barrage_data.picture1}&picture2=${barrage_data.picture2}`,
       success: function(res) {
         // 转发成功
-        console.log('ok',  `/pages/barrage/barrage?barrage_data=${barrage_data}&picture1=${barrage_data.picture1}&picture2=${barrage_data.picture2}`)
+        console.log('ok',  `/pages/barrage/barrage?barrage_data=${barrage_data}&picture_style=${picture_style}`)
       },
       fail: function(res) {
         // 转发失败

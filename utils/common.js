@@ -50,15 +50,15 @@ function alert(s) {
   })
 }
 
-function loading() {
+function loading(title) {
   if (wx.showLoading) {
     wx.showLoading({
-      title: '加载中',
+      title: title,
       mask: true
     })
   } else {
     wx.showToast({
-      title: "加载中...",
+      title: title,
       icon: "loading",
       duration: 100000
     })

@@ -1,0 +1,49 @@
+<view class="container">
+    <!--画布区域-->
+    <view class="canvas_area">
+        <!--注意：同一页面中的 canvas-id 不可重复，如果使用一个已经出现过的 canvas-id，该 canvas 标签对应的画布将被隐藏并不再正常工作-->
+        <canvas canvas-id="myCanvas" class="myCanvas"
+            disable-scroll="false"
+            bindtouchstart="touchStart"
+            bindtouchmove="touchMove"
+            bindtouchend="touchEnd">
+        </canvas>
+    </view>
+    <!--画布工具区域-->
+    <view class="canvas_tools">
+        <view class="box box1" style="background-image:{{itool[0].img}};{{itool[0].css}}"   animation="{{box1}}" hidden="{{!itool[0].show}}">
+
+            <view class="tab" data-meau="0" hidden="{{IsMeau}}" bindtap="itool">{{itool[0].txt}}</view>
+
+            <view class="slider" hidden="{{!(itool[0].show && IsMeau)}}">
+              <!-- <text class="sliderTitle">设置最小/最大值</text> -->
+              <view class="sliderView">
+                <slider catchchange="slider" min="1" max="50" show-value/>
+              </view>
+            </view>
+            
+        </view>
+
+        <view class="box box2" style="background-image:{{itool[1].img}};{{itool[0].css}}"  animation="{{box1}}" hidden="{{!itool[1].show}}">
+            <view class="tab" data-meau="1" hidden="{{IsMeau}}" bindtap="color">{{itool[1].txt}}</view>
+            <view style="width: 100%;height: 100%;display: flex;justify-content: space-around;align-items: center;" wx:if="{{itool[1].show && IsMeau}}">
+                <view style="width: 60rpx;height: 60rpx; border-radius:50%; background-color: {{item.color}};" wx:for="{{Color}}" data-index="{{index}}" data-color="{{item.color}}" bindtap="choiceColor"></view>
+            </view>
+        </view>
+
+
+        <view class="box box3" style="background-image:{{itool[2].img}};{{itool[0].css}}"  animation="{{box1}}" hidden="{{!itool[2].show}}" bindtap="clearCanvas">
+            <view class="tab" data-meau="2" hidden="{{IsMeau}}" >{{itool[2].txt}}</view>
+        </view>
+
+
+        <view class="box box4" style="background-image:{{itool[4].img}};{{itool[0].css}}"  animation="{{box1}}" hidden="{{!itool[3].show}}" bindtap="restore">
+            <view class="tab" data-meau="4" hidden="{{IsMeau}}" >{{itool[3].txt}}
+            <image style="width:60%" mode="widthFix" data-meau="4"  src="{{img}}back.png"></image>
+            </view>
+        </view>
+        <view class="box box5" style="background-image:{{itool[4].img}};{{itool[0].css}}" bindtap="saveCanvas" animation="{{box5}}">保存</view>
+
+        <!-- <view></view> -->
+    </view>
+</view>

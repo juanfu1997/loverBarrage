@@ -39,7 +39,7 @@ App({
   globalData: {
     userInfo: null,
     appid:76,
-    img:'https://www.korjo.cn/xcx/loverBarrage/',
+    img:'https://www.korjo.cn/xcx/BarrageImg/',
     music:'https://www.korjo.cn/xcx/loverBarrage/music/',
     korjo:'https://www.korjo.cn',
     windowWidth:'',

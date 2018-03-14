@@ -1,5 +1,5 @@
  <view class="main">
-	<image class="filter" src="{{img}}loveSet_bg.jpg"></image>
+	<image class="filter" src="{{img}}/filter.jpg"></image>
     <view class="btn_senior" bindtap="btn_senior">高级</view>
     <view class="btn_reset" >
     	<view class="reset" bindtap="btn_reset">重置</view>
@@ -19,16 +19,17 @@
 		    			
 		    		</view> -->
 		    		<view style="width: 100%;height: 100%;overflow: hidden;">
-		    			<image hidden="{{!type_image}}" style="width: 100%;" mode="widthFix" src="{{img}}{{type_image}}"></image>
+		    			<!-- <image hidden="{{!type_image}}" style="width: 100%;" mode="widthFix" src="{{img}}{{type_image}}"></image> -->
 		    			<textarea value="{{value}}" data-value="{{value}}" style="width: 100%;height: 100%;font-size: {{font_size}}vw;line-height: 2rem;" bindtap="getValue" hidden="{{textarea}}" auto-focus="{{!textarea}}" bindblur="preView"> </textarea>
 		    			<view style="width: 100%;height: 100%;font-size: {{font_size}}vw;display: flex;justify-content: space-around;align-items: center;line-height: 2.4rem;" data-value="{{value}}" hidden="{{!textarea}}" bindtap="edit" bindblur="setFontSize">{{value}}</view> 
 		    		</view>
 		    	</view>
 
 		    	<view class="tips">也可以直接选择一下预设内容</view>
-		    	    <view class="txt" style="{{item.choiced}}" hidden="{{!showType}}" wx:for="{{type_list}}" wx:key="txt" data-type="{{index}}" bindtap="setType">{{item.type}}</view>
-		    	    <view class="txt" style="{{item.choiced}}font-size:28rpx;" hidden="{{showType}}" wx:for="{{type_demo}}" wx:key="txt" data-value="{{item.txt}}" data-id="{{index}}" data-view="0" bindtap="choiced">{{item.txt}}</view>
-		    	     	
+		    	    <!-- <view class="txt" style="{{item.choiced}}" hidden="{{!showType}}" wx:for="{{type_list}}" wx:key="txt" data-type="{{index}}" bindtap="setType">{{item.type}}</view> -->
+		    	    <view class="txt" style="{{item.choiced}}font-size:28rpx;" hidden="{{!showType}}" wx:for="{{type_demo}}" wx:key="txt" data-value="{{item.txt}}" data-id="{{index}}" data-view="0" bindtap="choiced">{{item.txt}}</view>
+		    	     <!-- <view class="txt" style="{{item.choiced}}" wx:for="{{preset_list}}" wx:key="txt" data-id="{{index}}" bindtap="choiced">{{item.txt}}</view>
+ -->		    	     	
 		    </view>
 		    <view class="font {{screen.HdIndex==1? 'active': ''}}" data-id="1">
 		    	<view class="font_tips">请点击选择以下字体</view>
@@ -82,7 +83,7 @@
 		    	<view class="font_tips">选择以下音乐作为背景音乐</view>
 		    	<scroll-view style="width: 80%;height: 80%;" scroll-y="true">
 		    	<view style="playMusic" bindtap="">
-		    		<view class="addMusic" style="background: #f1f1f1;color: {{music_list.choiced==index?'#f29c9f':'#000'}};" wx:for="{{music_list.musicNum}}" data-index="{{index}}" bindtap="playMusic">
+		    		<view class="addMusic" style="background: #f1f1f1;color: {{music_list.choiced==index?'#7dbd29':'#000'}};" wx:for="{{music_list.musicNum}}" data-index="{{index}}" bindtap="playMusic">
 		    			背景音乐{{index}}
 		    		</view>
 		    	</view>
@@ -105,6 +106,18 @@
 		    		</view>
 		    	</view>
 		    </view>
+		    <view class="direction {{screen.HdIndex==9? 'active': ''}}" data-id="9">
+		    	<view class="font_tips">请点击按钮进行绘画</view>
+		    	<view class="picture_box">
+		    		<view style="width: 100%;flex-shrink: 0;" >
+		    			<image style="width: 10%;" mode="widthFix" src="{{img}}canvas.png" bindtap="Handwriting"></image>
+		    		</view>
+		    		<view style="width: 100%;background-color: #F8F8F8;flex-shrink:1; ">
+		    			<image style="width: 100%;" src="{{canvas}}"></image>
+		    		</view>
+		    		
+		    	</view>
+		    </view>
 	    </view>
 
 
@@ -125,3 +138,4 @@
 	</view>
 	<view class="btn_save" bindtap="btn_save">保存</view>
 </view>
+
