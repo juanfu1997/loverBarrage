@@ -1,4 +1,5 @@
 App({
+   
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -31,11 +32,38 @@ App({
         }
       }
     })
+    function compareVersion(v1, v2) {
+      v1 = v1.split('.')
+      v2 = v2.split('.')
+      var len = Math.max(v1.length, v2.length)
+
+      while (v1.length < len) {
+        v1.push('0')
+      }
+      while (v2.length < len) {
+        v2.push('0')
+      }
+
+      for (var i = 0; i < len; i++) {
+        var num1 = parseInt(v1[i])
+        var num2 = parseInt(v2[i])
+
+        if (num1 > num2) {
+          return 1
+        } else if (num1 < num2) {
+          return -1
+        }
+      }
+      return 0
+    }    
     var res = wx.getSystemInfoSync()
+    var New = compareVersion(res.SDKVersion,'1.2.0')
+    this.globalData.New = New
     this.globalData.windowWidth = res.windowWidth
     this.globalData.windowHeight = res.windowHeight
-    console.log(res.windowWidth,res.SDKVersion)
+    console.log(res, res.windowWidth, res.SDKVersion, New)
   },
+  
   globalData: {
     userInfo: null,
     appid:76,

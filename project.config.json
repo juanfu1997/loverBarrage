@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.91",
-	"appid": "wx5c36561a554d4522",
-	"projectname": "%E7%88%B1%E6%83%85%E5%B0%8F%E5%BC%B9%E5%B9%95%E3%80%90%E7%88%B1%E6%83%85%E3%80%91",
+	"libVersion": "1.6.7",
+	"appid": "wx2eebdb2e43fd8426",
+	"projectname": "%E6%8E%A5%E6%9C%BA%E5%B0%8F%E5%BC%B9%E5%B9%95%E3%80%90%E6%8E%A5%E6%9C%BA%E3%80%91",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -21,7 +21,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 3,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,

@@ -22,6 +22,7 @@ Page({
             {value:'lineColor',txt:'颜色',css:'border-radius:50%;',show:true},
             {value:'eraser',txt:'',css:'border-radius:50%;',show:true},
             {value:'withdraw',txt:'',css:'border-radius:50%;',show:true},
+            {value:'save',txt:'',css:'border-radius:50%;',show:true},
 
     ],
     meau:'',
@@ -42,7 +43,8 @@ Page({
   saveCanvas(){
     var that = this
     var canvas = that.data.canvas
-    // $.alter('')
+    console.log('1')
+    // $.alter('11')
     wx.canvasToTempFilePath({
         x: 0,
         y: 0,
@@ -52,11 +54,15 @@ Page({
         destHeight: that.data.windowHeight*3,
         canvasId: 'myCanvas',
         success: function(res) {
-          wx.downloadFile({
-            url: res.tempFilePath, //仅为示例，并非真实的资源
-            success: function(res) {
-              if (res.statusCode === 200) {
+          // console.log('111',res.tempFilePath)
+          // wx.downloadFile({
+          //   url: res.tempFilePath, //仅为示例，并非真实的资源
+          //   success: function(res) {
+          //     console.log('21')
+          //     if (res.statusCode === 200) {
                   $.adminUpload(res.tempFilePath,'image',function(res){
+                    console.log('111', res.tempFilePath)
+                                        
                     that.setData({
                       canvas:getApp().globalData.korjo + res.data
                     })
@@ -71,11 +77,12 @@ Page({
                   // that.setData({
                   //     back,
                   //   })
-              }
-            }
-          })
+              // }
+          //   },fail(r){console.log(r)}
+          // })
 
-        } 
+        },
+        fail(r){console.log(r)} 
       })
 
   },

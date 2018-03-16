@@ -1,0 +1,9 @@
+<view class="main" >
+	<image class="bg" src="http://g.m.fans-me.com/barrageImg/bg.png"></image>
+	<image class="korjo" mode="widthFix" src="http://g.m.fans-me.com/barrageImg/korjo.png"></image>
+	<image class="barrage" mode="widthFix" src="http://g.m.fans-me.com/barrageImg/barrage.png"></image>
+	<image class="filter" src="/images/filter.jpg"></image> 
+	<image class="road" mode="widthFix" src="http://g.m.fans-me.com/barrageImg/road.png"></image>
+	<image class="car" mode="widthFix" src="http://g.m.fans-me.com/barrageImg/car.png" bindtap="come"></image>
+	<image class="ufo" src="http://p.m.fans-me.com/geographyImg/ufo.png" mode='widthFix' bindtap='showQrcode'></image>
+</view>

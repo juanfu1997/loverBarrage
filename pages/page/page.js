@@ -1,25 +1,19 @@
 // pages/page/page.js
-const $ = require('../../utils/common.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  img:getApp().globalData.img,
+  
   },
   come(){
     wx.redirectTo({
   url: '/pages/set/set'
 })
   },
-  goFaq(){
-      wx.navigateTo({
-        url: '/pages/faq/faq',
-      })
-    },
   showQrcode(e) {
-    const url = 'http://www.korjo.cn/xcx/geographyImg/qrcode.jpg'
+    const url = 'http://p.m.fans-me.com/geographyImg/qrcode.jpg'
     wx.previewImage({
       urls: [url] // 需要预览的图片http链接列表
     })
@@ -29,10 +23,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(getApp().globalData.New)
-    if (getApp().globalData.New == -1) {
-      $.alter('','当前版本过低，部分功能无法实现，请升级微信.')
-    }
+  
   },
 
   /**

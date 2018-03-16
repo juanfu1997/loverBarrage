@@ -59,21 +59,38 @@ Page({
       { style: "小", size: "30rpx ", size_view: "30rpx", choiced: ""},
          ],
     color_style:[
-      { style: "1", color: "#fb6e87", choiced: "color:#7dbd29;"},
-      { style: "2", color: "#d7576b", choiced: ""},
-      { style: "3", color: "#a5738f", choiced: ""},
-      { style: "4", color: "#ea68a2", choiced: ""},
-      { style: "5", color: "#d04b7a", choiced: ""},
-      { style: "6", color: "#e83c8b", choiced: ""},
-      { style: "7", color: "#e50051", choiced: ""},
-      { style: "8", color: "#de6c8e", choiced: ""},
-      { style: "9", color: "#c70310", choiced: ""},
-      { style: "10", color: "#c379df", choiced: ""},
-      { style: "11", color: "#ff530d", choiced: ""},
-      { style: "12", color: "#62c4a0", choiced: ""},
-      { style: "13", color: "#86c3eb", choiced: ""},
-      { style: "14", color: "#62bac8", choiced: ""},
-      { style: "15", color: "#1c3770", choiced: ""},
+      { style: "1", color: "#e4ff00", choiced: "color:#7dbd29;"},
+      { style: "2", color: "#bdde35", choiced: ""},
+      { style: "3", color: "#5cffdd", choiced: ""},
+      { style: "4", color: "#49d6ff", choiced: ""},
+      { style: "5", color: "#457cf9", choiced: ""},
+      { style: "6", color: "#ac93ff", choiced: ""},
+      { style: "7", color: "#eea9ff", choiced: ""},
+      { style: "8", color: "#ff449c", choiced: ""},
+      { style: "9", color: "#fe2433", choiced: ""},
+      { style: "10", color: "#ff520e", choiced: ""},
+      { style: "11", color: "#ffae00", choiced: ""},
+      { style: "12", color: "#f8cc00", choiced: ""},
+      { style: "13", color: "#ffb7d6", choiced: ""},
+      { style: "14", color: "#b0f6fc", choiced: ""},
+      { style: "15", color: "#ffffff", choiced: ""},
+         ],
+    color_style:[
+         {style:"1",color:"#e4ff00"},
+         {style:"2",color:"#bdde35"},
+         {style:"3",color:"#5cffdd"},
+         {style:"4",color:"#49d6ff"},
+         {style:"5",color:"#457cf9"},
+         {style:"6",color:"#ac93ff"},
+         {style:"7",color:"#eea9ff"},
+         {style:"8",color:"#ff449c"},
+         {style:"9",color:"#fe2433"},
+         {style:"10",color:"#ff520e"},
+         {style:"11",color:"#ffae00"},
+         {style:"12",color:"#f8cc00"},
+         {style:"13",color:"#ffb7d6"},
+         {style:"14",color:"#b0f6fc"},
+         {style:"15",color:"#ffffff"},
          ],
     picture_style:[
       { style: "最大", size: "80rpx", picture: "", choiced: "color:#7dbd29;"},
@@ -297,6 +314,7 @@ Page({
     var view = e.currentTarget.dataset.view
     var value = that.data.value
     var textarea = that.data.textarea
+    var type_demo = that.data.type_demo
     var parsent
     var childStyle
     switch(view)
@@ -304,7 +322,7 @@ Page({
     case '0':
       var value = e.currentTarget.dataset.value
       that.setFontSize(value)
-      parsent = preset_list
+      parsent = type_demo
     // console.log('parsent',parsent,id)
       childStyle = 'color:#7dbd29'
       value = barrage_data.textarea = preset_list[id].txt
@@ -385,6 +403,7 @@ Page({
       type_image:false,
       value,
       textarea,
+      type_demo,
     })
   },
   addPicture(e){

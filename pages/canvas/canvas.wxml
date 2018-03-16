@@ -37,12 +37,12 @@
         </view>
 
 
-        <view class="box box4" style="background-image:{{itool[4].img}};{{itool[0].css}}"  animation="{{box1}}" hidden="{{!itool[3].show}}" bindtap="restore">
+        <view class="box box4" style="background-image:{{itool[3].img}};{{itool[0].css}}"  animation="{{box1}}" hidden="{{!itool[3].show}}" bindtap="restore">
             <view class="tab" data-meau="4" hidden="{{IsMeau}}" >{{itool[3].txt}}
             <image style="width:60%" mode="widthFix" data-meau="4"  src="{{img}}back.png"></image>
             </view>
         </view>
-        <view class="box box5" style="background-image:{{itool[4].img}};{{itool[0].css}}" bindtap="saveCanvas" animation="{{box5}}">保存</view>
+        <view class="box box5" style="background-image:{{itool[4].img}};{{itool[0].css}}" bindtap="saveCanvas" hidden="{{!itool[4].show}}" animation="{{box5}}">保存</view>
 
         <!-- <view></view> -->
     </view>
